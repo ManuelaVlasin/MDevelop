@@ -9,8 +9,6 @@ class SimpleCardWithImage extends Component
 {
     public Lesson $lesson;
 
-    public $goToBtn = [];
-
     public function render()
     {
         return view('livewire.components.cards.simple-card-with-image');
