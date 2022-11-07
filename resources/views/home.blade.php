@@ -41,7 +41,6 @@
     </div>
 
 </header>
-
 <div>
     <h2>Oferă-ți libertatea de a lucra din orice colț al lumii</h2>
 </div>

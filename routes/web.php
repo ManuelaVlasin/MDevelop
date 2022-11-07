@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home_new');
+    return view('app');
 });
 
 Route::get('/lessons', function (){
@@ -24,3 +24,5 @@ Route::get('/lessons', function (){
 Route::get('/lesson_details/{id}', function (){
     return view('pages.services.lesson_details');
 });
+
+Route::get('lesson/{lessonId}/details', [\App\Http\Livewire\Pages\LessonDetailsPage::class, '__invoke'])->name('lesson.details');

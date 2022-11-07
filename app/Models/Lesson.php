@@ -13,5 +13,8 @@ class Lesson extends Model
         'image',
         'title',
         'description',
+        'has_period',
+        'period_start',
+        'period_end',
     ];
 }
