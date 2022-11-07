@@ -1,13 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-          integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-
-    <title>MDEVELOP</title>
-</head>
-<body style="background-color: #eee;">
-<header></header>
+@include('layout.partials.header')
+@yield('content')
 
 <div style="display: flex; justify-content: center; margin-top: 10%; font-size: 30px">
     <h1>{{__('Cursuri Acreditate IT')}}
@@ -25,30 +17,30 @@
         @endforeach
     </div>
 </div>
-</body>
-</html>
+{{--</body>--}}
+{{--</html>--}}
 
 <style>
     @import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
 
-    * {
-        margin: 0;
-        padding: 0;
-    }
+    /** {*/
+    /*    margin: 0;*/
+    /*    padding: 0;*/
+    /*}*/
 
-    html {
-        box-sizing: border-box;
-        font-size: 62.5%;
-    }
+    /*html {*/
+    /*    box-sizing: border-box;*/
+    /*    font-size: 62.5%;*/
+    /*}*/
 
-    header {
-        width: 100%;
-        height: 100vh;
-        background: linear-gradient(to bottom, rgba(0, 0, 0, .8), rgba(0, 0, 0, .5)), url("https://edexec.co.uk/wp-content/uploads/2018/02/education-technology.png") no-repeat;
-        background-size: cover;
-        position: relative;
-        overflow: hidden;
-    }
+    /*header {*/
+    /*    width: 100%;*/
+    /*    height: 100vh;*/
+    /*    background: linear-gradient(to bottom, rgba(0, 0, 0, .8), rgba(0, 0, 0, .5)), url("https://edexec.co.uk/wp-content/uploads/2018/02/education-technology.png") no-repeat;*/
+    /*    background-size: cover;*/
+    /*    position: relative;*/
+    /*    overflow: hidden;*/
+    /*}*/
 
     #card_body {
         font-family: "Poppins", sans-serif;
@@ -56,6 +48,7 @@
         justify-content: center;
         align-items: center;
         min-height: 100vh;
+        font-size: 62.5%;
     }
 
     .grid {

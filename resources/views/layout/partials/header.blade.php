@@ -19,6 +19,6 @@
 <body>
 
 @include('layout.partials.navbar')
-@include('layout.partials.footer')
+{{--@include('layout.partials.footer')--}}
 </body>
 </html>
