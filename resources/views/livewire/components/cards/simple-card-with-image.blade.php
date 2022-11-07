@@ -6,6 +6,6 @@
         <p class="card-text">
             {{ $lesson->description }}
         </p>
-        <a href="lesson_details/ {{$lesson->id}}" class="card-btn">{{__('Afla mai multe! ')}}<span>&rarr;</span></a>
+        <a href="{{ route('lesson.details', ['lessonId' => $lesson->id]) }}" class="card-btn">{{__('Afla mai multe! ')}}<span>&rarr;</span></a>
     </div>
 </div>
