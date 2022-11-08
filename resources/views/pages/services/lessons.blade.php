@@ -17,8 +17,6 @@
         @endforeach
     </div>
 </div>
-{{--</body>--}}
-{{--</html>--}}
 
 <style>
     @import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");

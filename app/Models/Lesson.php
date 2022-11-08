@@ -17,4 +17,9 @@ class Lesson extends Model
         'period_start',
         'period_end',
     ];
+
+    public function features()
+    {
+        return $this->hasMany(LessonFeatures::class);
+    }
 }
