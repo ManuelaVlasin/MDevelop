@@ -246,7 +246,8 @@
     }
 
     .megamenu {
-        position: absolute;
+        /*position: absolute;*/
+        position: fixed;
         width: 100%;
         left: 0;
         background-color: #fff;
