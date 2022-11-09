@@ -1,8 +1,8 @@
 <div>
-    <div class="card mb-3">
+    <div style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;" class="card mb-3">
         <div class="row no-gutters">
             <div class="col-md-4">
-                <img src="{{$lesson->image}}" style="max-width: 100%">
+                <img src="{{$lesson->image}}" style="max-width: 100%; margin: 20px">
             </div>
             <div class="col-md-8">
                 <div class="card-body">
@@ -40,19 +40,19 @@
     </div>
     <div class="card">
         <div class="card-header text-center">
-            <a class="btn {{$selectedTab === 'overview' ? 'btn-primary' : 'btn-secondary'}}"
+            <a class="btn {{$selectedTab === 'overview' ? 'btn-secondary' : 'btn-outline-secondary'}}"
                wire:click="selectTab('overview')">
                 {{__('Detalii Curs')}}
             </a>
-            <a class="btn {{$selectedTab === 'accreditation' ? 'btn-primary' : 'btn-secondary'}}"
+            <a class="btn {{$selectedTab === 'accreditation' ? 'btn-secondary' : 'btn-outline-secondary'}}"
                wire:click="selectTab('accreditation')">
                 {{__('Acreditare')}}
             </a>
-            <a class="btn {{$selectedTab === 'payment' ? 'btn-primary' : 'btn-secondary'}}"
+            <a class="btn {{$selectedTab === 'payment' ? 'btn-secondary' : 'btn-outline-secondary'}}"
                wire:click="selectTab('payment')">
                 {{__('Modalități de plată')}}
             </a>
-            <a class="btn {{$selectedTab === 'location' ? 'btn-primary' : 'btn-secondary'}}"
+            <a class="btn {{$selectedTab === 'location' ? 'btn-secondary' : 'btn-outline-secondary'}}"
                wire:click="selectTab('location')">
                 {{__('Locație și organizare')}}
             </a>
@@ -85,11 +85,10 @@
 
                         <div class="row">
                             @foreach($lesson->features as $feature)
-                                <div class="col-sm-6">
+                                <div class="col-sm-4">
                                     <div class="card mb-3">
-                                        <div class="card-body">
-                                            <h5 class="card-title">{{$feature->feature_name}}</h5>
-                                            {{--                                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>--}}
+                                        <div class="card-body" style="height: 120px">
+                                            <h5 class="card-title d-flex justify-content-center p-4">{{__($feature->feature_name)}}</h5>
                                         </div>
                                     </div>
                                 </div>
@@ -221,16 +220,25 @@
                             </div>
                         </div>
                     @else
-                        <div class="card-text">
+                        <div style="margin-left:10px">
+                            <h2 class="text-center fw-bold mb-5">{{__('Locație și organizare')}}</h2>
                             <div class="wrapper-location">
                                 <ul class="StepProgress">
-                                    <li class="StepProgress-item is-done"><strong>Post a contest</strong></li>
-                                    <li class="StepProgress-item is-done"><strong>Award an entry</strong>
-                                        Got more entries that you love? Buy more entries anytime! Just hover on your favorite entry and click the Buy button
-                                    </li>
-                                    <li class="StepProgress-item current"><strong>Post a contest</strong></li>
-                                    <li class="StepProgress-item"><strong>Handover</strong></li>
-                                    <li class="StepProgress-item"><strong>Provide feedback</strong></li>
+                                    <div class="StepProgress-item is-done"><strong>{{__('În ce zile se va desfășura cursul ?')}}</strong>
+                                        {{__($lesson->teaching_day_1)}} {{__('și')}} {{__($lesson->teaching_day_2)}} {{__('de la')}} {{$lesson->start_time}} - {{$lesson->end_time}}
+                                    </div>
+                                    <div class="StepProgress-item is-done"><strong>{{__('Numărul de ore')}}</strong>
+                                        {{$lesson->number_of_hours}} (curs + laborator)
+                                    </div>
+                                    <div class="StepProgress-item is-done"><strong>{{__('Locația')}}</strong>
+                                        {{$lesson->location}}
+                                    </div>
+                                    <div class="StepProgress-item is-done"><strong>{{__('Te pregătești pentru un job de')}}</strong>
+                                        {{$lesson->title}}
+                                    </div>
+                                    <div class="StepProgress-item last-is-done"><strong>{{__('Ai nevoie de')}}</strong>
+                                        {{__('Laptop')}}
+                                    </div>
                                 </ul>
                             </div>
                         </div>
@@ -243,11 +251,8 @@
 <style>
     .wrapper-location {
         width: 330px;
-        font-family: 'Helvetica';
-        font-size: 14px;
-        border: 1px solid #CCC;
+        font-size: 20px;
     }
-
     .StepProgress {
         position: relative;
         padding-left: 45px;
@@ -258,12 +263,10 @@
         content: '';
         position: absolute;
         top: 0;
-        left: 24px;
+        left: 15px;
         width: 10px;
         height: 100%;
-        border-left: 2px solid #CCC;
     }
-
     .StepProgress-item {
         position: relative;
         counter-increment: list;
@@ -271,67 +274,50 @@
     .StepProgress-item:not(:last-child) {
         padding-bottom: 20px;
     }
-
     .StepProgress-item::before {
         display: inline-block;
         content: '';
         position: absolute;
-        left: -20px;
+        left: -30px;
         height: 100%;
         width: 10px;
     }
-
     .StepProgress-item::after {
         content: '';
         display: inline-block;
         position: absolute;
         top: 0;
         left: -37px;
-        width: 12px;
-        height: 12px;
+        width: 20px;
+        height: 20px;
         border: 2px solid #CCC;
         border-radius: 50%;
         background-color: #FFF;
     }
-
-    .StepProgress-item.is-done::before{
+    .StepProgress-item.is-done::before {
         border-left: 2px solid green;
     }
     .StepProgress-item.is-done::after {
         content: "✔";
-        font-size: 10px;
+        font-size: 13px;
         color: #FFF;
         text-align: center;
-        border: 15px solid green;
+        border: 2px solid green;
         background-color: green;
     }
 
-    .StepProgress-item.current::before {
-        border-left: 2px solid green;
-    }
-
-    .StepProgress-item.current::after {
-        content: counter(list);
-        padding-top: 1px;
-        width: 19px;
-        height: 18px;
-        top: -4px;
-        left: -40px;
-        font-size: 14px;
+    .StepProgress-item.last-is-done::after {
+        content: "✔";
+        font-size: 13px;
+        color: #FFF;
         text-align: center;
-        color: green;
         border: 2px solid green;
-        background-color: white;
+        background-color: green;
     }
 
-
-
-    strong {
+    .StepProgress strong {
         display: block;
     }
-
-
-
 
     .download-pdf {
         color: black;
