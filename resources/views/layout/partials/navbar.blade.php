@@ -20,7 +20,7 @@
                                 <i class="bx bx-palette"></i>
                             </div>
                             <div class="megamenu__link">
-                                <a href="/lessons">HTML & CSS</a>
+                                <a href="{{route('lessons')}}">HTML & CSS</a>
                                 <p>Create your own website</p>
                             </div>
                         </li>

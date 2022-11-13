@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Livewire\Pages\LessonDetailsPage;
+use App\Http\Livewire\Pages\Lessons;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,12 +19,9 @@ Route::get('/', function () {
     return view('app');
 });
 
-Route::get('/lessons', function (){
-    return view('pages.services.lessons');
+Route::get('/home_new', function (){
+    return view('home_new');
 });
 
-Route::get('/lesson_details/{id}', function (){
-    return view('pages.services.lesson_details');
-});
-
-Route::get('lesson/{lessonId}/details', [\App\Http\Livewire\Pages\LessonDetailsPage::class, '__invoke'])->name('lesson.details');
+Route::get('lesson/{lessonId}/details', [LessonDetailsPage::class, '__invoke'])->name('lesson.details');
+Route::get('lessons', [Lessons::class, '__invoke'])->name('lessons');

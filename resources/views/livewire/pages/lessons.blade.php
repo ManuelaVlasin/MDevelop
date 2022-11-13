@@ -1,25 +1,79 @@
-@include('layout.partials.header')
-@yield('content')
+<div class="lesson-container">
+    <div class="parallax-image">
+        <h1>{{__('Cursuri Acreditate IT')}}
+            <i class="fa fa-graduation-cap"></i>
+        </h1>
+    </div>
 
-<div style="display: flex; justify-content: center; margin-top: 10%; font-size: 30px">
-    <h1>{{__('Cursuri Acreditate IT')}}
-        <i class="fa fa-graduation-cap"></i>
-    </h1>
-</div>
-<div id="card_body">
-    <div class="grid">
-        @foreach(\App\Models\Lesson::all() as $lesson)
-            <div class="grid-item" wire:key="{{rand()}}">
-                <livewire:components.cards.simple-card-with-image
-                    :lessonId="$lesson->id"
-                />
-            </div>
-        @endforeach
+    <div id="card_body">
+        <div class="grid">
+            @foreach(\App\Models\Lesson::all() as $lesson)
+                <div class="grid-item" wire:key="{{rand()}}">
+                    <livewire:components.cards.simple-card-with-image
+                        :lessonId="$lesson->id"
+                    />
+                </div>
+            @endforeach
+        </div>
     </div>
 </div>
 
 <style>
-    @import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
+
+    /*body {*/
+    /*    color: #fff;*/
+    /*    margin: 0;*/
+    /*    padding: 0;*/
+    /*    perspective: 1px;*/
+    /*    transform-style: preserve-3d;*/
+    /*    height: 100%;*/
+    /*    overflow-y: scroll;*/
+    /*    overflow-x: hidden;*/
+    /*}*/
+
+    /*.parallax-image {*/
+    /*    box-sizing: border-box;*/
+    /*    min-height: 100vh;*/
+    /*    padding: 30vh 0 5vw;*/
+    /*    position: relative;*/
+    /*    transform-style: inherit;*/
+    /*    width: 100vh;*/
+    /*}*/
+
+    /*.parallax-image h1 {*/
+    /*    margin-top: -100px;*/
+    /*}*/
+
+    /*.parallax-image, .parallax-image:before {*/
+    /*    background: 50% 50% / cover;*/
+    /*}*/
+
+    /*.parallax-image::before {*/
+    /*    bottom: 0;*/
+    /*    content: "";*/
+    /*    left: 0;*/
+    /*    position: absolute;*/
+    /*    right: 0;*/
+    /*    top: 0;*/
+    /*    display: block;*/
+    /*    background-image: url("https://images.theconversation.com/files/483055/original/file-20220906-16-vkvxrf.jpg?ixlib=rb-1.1.0&rect=0%2C29%2C4446%2C2492&q=20&auto=format&w=320&fit=clip&dpr=2&usm=12&cs=strip");*/
+    /*    background-size: cover;*/
+    /*    transform-origin: center center 0;*/
+    /*    transform: translateZ(-1px) scale(2);*/
+    /*    z-index: -1;*/
+    /*    min-height: 100vh;*/
+    /*}*/
+
+    /*.lesson-container * {*/
+    /*    font-weight: normal;*/
+    /*    letter-spacing: 0.2em;*/
+    /*    text-align: center;*/
+    /*    margin: 0;*/
+    /*    padding: 1em 0;*/
+    /*}*/
+
+
+    /*@import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");*/
 
     /** {*/
     /*    margin: 0;*/
