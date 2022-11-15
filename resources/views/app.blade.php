@@ -11,7 +11,7 @@
 <body>
 
 
-<div class="container">
+<div class="app-container">
 
     <header class="row">
 
@@ -20,7 +20,7 @@
     </header>
 
 
-    <div id="main" class="row" style="margin-top: 4rem; padding: 20px">
+    <div class="main">
 
         @yield('content')
 

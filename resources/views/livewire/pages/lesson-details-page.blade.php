@@ -1,4 +1,4 @@
-<div>
+<div style="margin: 80px">
     <div style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;" class="card mb-3">
         <div class="row no-gutters">
             <div class="col-md-4">

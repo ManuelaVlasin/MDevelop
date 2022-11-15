@@ -1,194 +1,150 @@
 <div class="lesson-container">
-    <div class="parallax-image">
-        <h1>{{__('Cursuri Acreditate IT')}}
-            <i class="fa fa-graduation-cap"></i>
-        </h1>
+{{--    <div class="parallax-image">--}}
+{{--        <h1>{{__('Cursuri Acreditate IT')}}--}}
+{{--            <i class="fa fa-graduation-cap"></i>--}}
+{{--        </h1>--}}
+{{--    </div>--}}
+
+{{--    <div class="parallax"></div>--}}
+{{--    <h1 class="title-home">This is my title</h1>--}}
+{{--    <div class="col-lg-12 text-box text-center">--}}
+{{--        <h1>This is my subtitle. Example, example, etc.</h1>--}}
+{{--    <div class="parallax"></div>--}}
+
+    <h1 id="title-home">{{__('Sky is the limit')}}</h1>
+    <div class="parallax"></div>
+    <div class="col-lg-12 text-box text-center">
+        <h1>{{__('Cursuri Acreditate IT')}}</h1>
     </div>
 
-    <div id="card_body">
-        <div class="grid">
+    <div class="card_body">
+        <ul class="cards">
             @foreach(\App\Models\Lesson::all() as $lesson)
-                <div class="grid-item" wire:key="{{rand()}}">
-                    <livewire:components.cards.simple-card-with-image
-                        :lessonId="$lesson->id"
-                    />
-                </div>
+                <livewire:components.cards.simple-card-with-image
+                    :lessonId="$lesson->id"
+                />
             @endforeach
-        </div>
+        </ul>
     </div>
 </div>
 
 <style>
-
-    /*body {*/
-    /*    color: #fff;*/
-    /*    margin: 0;*/
-    /*    padding: 0;*/
-    /*    perspective: 1px;*/
-    /*    transform-style: preserve-3d;*/
-    /*    height: 100%;*/
-    /*    overflow-y: scroll;*/
-    /*    overflow-x: hidden;*/
-    /*}*/
-
-    /*.parallax-image {*/
-    /*    box-sizing: border-box;*/
-    /*    min-height: 100vh;*/
-    /*    padding: 30vh 0 5vw;*/
-    /*    position: relative;*/
-    /*    transform-style: inherit;*/
-    /*    width: 100vh;*/
-    /*}*/
-
-    /*.parallax-image h1 {*/
-    /*    margin-top: -100px;*/
-    /*}*/
-
-    /*.parallax-image, .parallax-image:before {*/
-    /*    background: 50% 50% / cover;*/
-    /*}*/
-
-    /*.parallax-image::before {*/
-    /*    bottom: 0;*/
-    /*    content: "";*/
-    /*    left: 0;*/
-    /*    position: absolute;*/
-    /*    right: 0;*/
-    /*    top: 0;*/
-    /*    display: block;*/
-    /*    background-image: url("https://images.theconversation.com/files/483055/original/file-20220906-16-vkvxrf.jpg?ixlib=rb-1.1.0&rect=0%2C29%2C4446%2C2492&q=20&auto=format&w=320&fit=clip&dpr=2&usm=12&cs=strip");*/
-    /*    background-size: cover;*/
-    /*    transform-origin: center center 0;*/
-    /*    transform: translateZ(-1px) scale(2);*/
-    /*    z-index: -1;*/
-    /*    min-height: 100vh;*/
-    /*}*/
-
-    /*.lesson-container * {*/
-    /*    font-weight: normal;*/
-    /*    letter-spacing: 0.2em;*/
-    /*    text-align: center;*/
-    /*    margin: 0;*/
-    /*    padding: 1em 0;*/
-    /*}*/
-
-
-    /*@import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");*/
-
-    /** {*/
-    /*    margin: 0;*/
-    /*    padding: 0;*/
-    /*}*/
-
-    /*html {*/
-    /*    box-sizing: border-box;*/
-    /*    font-size: 62.5%;*/
-    /*}*/
-
-    /*header {*/
-    /*    width: 100%;*/
-    /*    height: 100vh;*/
-    /*    background: linear-gradient(to bottom, rgba(0, 0, 0, .8), rgba(0, 0, 0, .5)), url("https://edexec.co.uk/wp-content/uploads/2018/02/education-technology.png") no-repeat;*/
-    /*    background-size: cover;*/
-    /*    position: relative;*/
-    /*    overflow: hidden;*/
-    /*}*/
-
-    #card_body {
-        font-family: "Poppins", sans-serif;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-        font-size: 62.5%;
+    #title-home{
+        position: absolute;
+        z-index: 1000;
+        top: 30vw;
+        left: 30vw;
+        font-size: 72px;
+        background: -webkit-linear-gradient(#eee, #333);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
     }
 
-    .grid {
-        display: grid;
-        width: 114em;
-        grid-gap: 6rem;
-        grid-template-columns: 33% 33% 33%;
-        /*grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));*/
-        align-items: start;
+    .text-box{
+        padding: 50px;
     }
 
-    .grid-item {
-        background-color: #fff;
-        border-radius: 20px;
-        overflow: hidden;
-        box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.1);
-        cursor: pointer;
-        transition: 0.2s;
+    .parallax {
+        /* The image used */
+        background-image: url("https://www.metoffice.gov.uk/binaries/content/gallery/metofficegovuk/hero-images/weather/cloud/cumulus-cloud.jpg");
+        min-height: 650px;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
     }
 
-    .grid-item:hover {
-        transform: translateY(-0.5%);
-        box-shadow: 0 4rem 8rem rgba(0, 0, 0, 0.5);
-    }
-
-    .card-img {
-        display: block;
+    .card_image img {
         width: 100%;
-        height: 20rem;
-        object-fit: cover;
-    }
-
-    .card-content {
-        padding: 3rem;
-    }
-
-    .card-header {
-        font-size: 3rem;
-        font-weight: 500;
-        color: #0d0d0d;
-        margin-bottom: 1.5rem;
-    }
-
-    .card-text {
-        font-size: 1.6rem;
-        letter-spacing: 0.1rem;
-        line-height: 1.7;
-        color: #3d3d3d;
-        margin-bottom: 2.5rem;
-    }
-
-    .card-btn {
         display: block;
-        width: 100%;
-        padding: 1.5rem;
-        font-size: 2rem;
+    }
+
+    .card_body{
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    h1 {
+        font-size: 24px;
+        font-weight: 400;
         text-align: center;
-        color: #3363ff;
-        background-color: #d8e0fd;
-        border: none;
-        border-radius: 0.4rem;
-        transition: 0.2s;
+    }
+
+    .card_btn {
+        padding: 0.8rem;
+        border-radius: 40px;
+        font-weight: 400;
+        display: block;
+        width: 100%;
         cursor: pointer;
-        letter-spacing: 0.1rem;
+        border: 1px solid;
+        background: transparent;
     }
 
-    .card-btn span {
-        margin-left: 1rem;
-        transition: 0.2s;
+    .card_btn:hover {
+        background-color: rgba(255, 255, 255, 0.12);
     }
 
-    .card-btn:hover,
-    .card-btn:active {
-        background-color: #c2cffc;
+    .cards {
+        display: flex;
+        flex-wrap: wrap;
+        list-style: none;
+        margin: 0;
+        padding: 0;
     }
 
-    .card-btn:hover span,
-    .card-btn:active span {
-        margin-left: 1.5rem;
+    .cards_item {
+        display: flex;
+        padding: 1rem;
     }
 
-    @media only screen and (max-width: 60em) {
-        body {
-            padding: 3rem;
+    .card {
+        background-color: white;
+        /*box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);*/
+        box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        border-radius: 30px;
+    }
+
+    .card_content {
+        padding: 1rem;
+    }
+
+    .card_title {
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: capitalize;
+        text-align: center;
+    }
+
+    .card_text {
+        line-height: 1.5;
+        margin-bottom: 1.25rem;
+        font-weight: 400;
+        text-align: center;
+    }
+
+    @media only screen and (max-device-width: 1024px) {
+        .parallax {
+            background-attachment: scroll;
+        }
+    }
+
+    @media (min-width: 40rem) {
+        .cards_item {
+            width: 50%;
         }
 
-        .grid {
-            grid-gap: 3rem;
+        #title-home {
+            left: 20vw;
+        }
+    }
+
+    @media (min-width: 56rem) {
+        .cards_item {
+            width: 33.3333%;
         }
     }
 
