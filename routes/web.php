@@ -23,5 +23,9 @@ Route::get('/home_new', function (){
     return view('home_new');
 });
 
+Route::get('/test', function (){
+    return view('test');
+});
+
 Route::get('lesson/{lessonId}/details', [LessonDetailsPage::class, '__invoke'])->name('lesson.details');
 Route::get('lessons', [Lessons::class, '__invoke'])->name('lessons');

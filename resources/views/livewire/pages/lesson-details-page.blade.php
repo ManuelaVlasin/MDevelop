@@ -46,42 +46,6 @@
         </div>
     </div>
 
-
-    {{--    <div class="navigation">--}}
-    {{--        <ul>--}}
-    {{--            <li class="list active">--}}
-    {{--                <a href="#">--}}
-    {{--                    <span class="icon">--}}
-    {{--                        <ion-icon name="home-outline"></ion-icon></span>--}}
-    {{--                    <span class="text">Home</span>--}}
-    {{--                </a>--}}
-    {{--            </li>--}}
-    {{--            <li class="list">--}}
-    {{--                <a href="#">--}}
-    {{--                    <span class="icon"><ion-icon name="person-outline"></ion-icon></span>--}}
-    {{--                    <span class="text">Profile</span>--}}
-    {{--                </a>--}}
-    {{--            </li>--}}
-    {{--            <li class="list">--}}
-    {{--                <a href="#">--}}
-    {{--                    <span class="icon"><ion-icon name="document-outline"></ion-icon></span>--}}
-    {{--                    <span class="text">Message</span>--}}
-    {{--                </a>--}}
-    {{--            </li>--}}
-    {{--            <li class="list">--}}
-    {{--                <a href="#">--}}
-    {{--                    <span class="icon"><ion-icon name="flame-outline"></ion-icon></span>--}}
-    {{--                    <span class="text">Settings</span>--}}
-    {{--                </a>--}}
-    {{--            </li>--}}
-    {{--            <div class="indicator"></div>--}}
-    {{--        </ul>--}}
-    {{--    </div>--}}
-
-{{--    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>--}}
-{{--    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>--}}
-
-
     <div class="card">
         <div class="card-header text-center p-5">
             <a class="btn {{$selectedTab === 'overview' ? 'btn-secondary' : 'btn-outline-secondary'}}"
@@ -100,38 +64,6 @@
                wire:click="selectTab('location')">
                 {{__('Locație și organizare')}}
             </a>
-
-
-            {{--            <div class="navigation">--}}
-            {{--                <ul>--}}
-            {{--                    <li class="list active">--}}
-            {{--                        <a wire:click="selectTab('overview')">--}}
-            {{--                            <span class="icon"><ion-icon name="list-sharp"></ion-icon></span>--}}
-            {{--                            <span class="text"> {{__('Detalii Curs')}}</span>--}}
-            {{--                        </a>--}}
-            {{--                    </li>--}}
-            {{--                    <li class="list">--}}
-            {{--                        <a wire:click="selectTab('accreditation')">--}}
-            {{--                            <span class="icon"><ion-icon name="ribbon-outline"></ion-icon></span>--}}
-            {{--                            <span class="text">{{__('Acreditare')}}</span>--}}
-            {{--                        </a>--}}
-            {{--                    </li>--}}
-            {{--                    <li class="list">--}}
-            {{--                        <a  wire:click="selectTab('payment')">--}}
-            {{--                            <span class="icon"><ion-icon name="cash-outline"></ion-icon></span>--}}
-            {{--                            <span class="text">{{__('Modalități de plată')}}</span>--}}
-            {{--                        </a>--}}
-            {{--                    </li>--}}
-            {{--                    <li class="list">--}}
-            {{--                        <a  wire:click="selectTab('location')">--}}
-            {{--                            <span class="icon"><ion-icon name="location-outline"></ion-icon></span>--}}
-            {{--                            <span class="text"> {{__('Locație și organizare')}}</span>--}}
-            {{--                        </a>--}}
-            {{--                    </li>--}}
-            {{--                    <div class="indicator"></div>--}}
-            {{--                </ul>--}}
-            {{--            </div>--}}
-
 
         </div>
         <div class="card-body">
@@ -344,147 +276,6 @@
 </div>
 
 <style>
-
-    /*:root {*/
-    /*    --clr: #222327;*/
-    /*}*/
-
-    /*.navigation {*/
-    /*    position: relative;*/
-    /*    width: 400px;*/
-    /*    height: 70px;*/
-    /*    background: #fff;*/
-    /*    display: flex;*/
-    /*    justify-content: center;*/
-    /*    align-items: center;*/
-    /*    border-radius: 10px;*/
-    /*}*/
-
-    /*.navigation ul {*/
-    /*    display: flex;*/
-    /*    width: 350px;*/
-    /*}*/
-
-    /*.navigation ul li {*/
-    /*    position: relative;*/
-    /*    list-style: none;*/
-    /*    width: 70px;*/
-    /*    height: 70px;*/
-    /*    z-index: 1;*/
-    /*}*/
-
-    /*.navigation ul li a {*/
-    /*    position: relative;*/
-    /*    display: flex;*/
-    /*    justify-content: center;*/
-    /*    align-items: center;*/
-    /*    flex-direction: column;*/
-    /*    width: 100%;*/
-    /*    text-align: center;*/
-    /*    font-weight: 500;*/
-    /*}*/
-
-    /*.navigation ul li a .icon {*/
-    /*    position: relative;*/
-    /*    display: block;*/
-    /*    line-height: 75px;*/
-    /*    font-size: 1.5em;*/
-    /*    text-align: center;*/
-    /*    transition: 0.5s;*/
-    /*    color: var(--clr);*/
-    /*}*/
-
-    /*.navigation ul li:active a .icon {*/
-    /*    transform: translateY(-32px);*/
-    /*}*/
-
-    /*.navigation ul li a .text {*/
-    /*    position: absolute;*/
-    /*    color: var(--clr);*/
-    /*    font-weight: 400;*/
-    /*    font-size: 1em;*/
-    /*    letter-spacing: 0.05em;*/
-    /*    transition: 0.5s;*/
-    /*    !*opacity: 0;*!*/
-    /*    top: 50px;*/
-    /*    transform: translateY(20px);*/
-    /*}*/
-
-    /*.navigation ul li:active a .text {*/
-    /*    opacity: 1;*/
-    /*    transform: translateY(10px);*/
-    /*}*/
-
-    /*.indicator {*/
-    /*    position: absolute;*/
-    /*    !*top: -50%;*!*/
-    /*    width: 70px;*/
-    /*    height: 70px;*/
-    /*    background: lightcyan;*/
-    /*    border-radius: 50%;*/
-    /*    border: 2px solid var(--clr);*/
-    /*    transition: 0.5s;*/
-    /*}*/
-
-    /*.indicator::before{*/
-    /*    content: '';*/
-    /*    position: absolute;*/
-    /*    top: 50%;*/
-    /*    left: -22px;*/
-    /*    width: 20px;*/
-    /*    height: 20px;*/
-    /*    background: transparent;*/
-    /*    border-top-right-radius: 20px;*/
-    /*    box-shadow: 1px -10px 0 0 var(--clr);*/
-    /*}*/
-
-    /*.indicator::after{*/
-    /*    !*content: '\1F526';*!*/
-    /*    content: '\27CB';*/
-    /*    !*content: '';*!*/
-    /*    !*background-image:url('https://hotemoji.com/images/dl/r/flashlight-emoji-by-google.png');*!*/
-
-    /*    position: absolute;*/
-    /*    top: 50%;*/
-    /*    left: -22px;*/
-    /*    width: 20px;*/
-    /*    height: 20px;*/
-    /*    !*background: transparent;*!*/
-    /*    border-top-left-radius: 20px;*/
-    /*    !*box-shadow: -1px -10px 0 0 var(--clr);*!*/
-
-    /*}*/
-
-    .indicator::after {
-        /* content: '\1F526'; */
-        /*content: '\27CB';*/
-        content: '';
-        position: absolute;
-        top: 80%;
-        left: -22px;
-        width: 34px;
-        height: 54px;
-        box-shadow: 0 -5px var(--clr);
-        rotate: -25deg;
-    }
-
-    .navigation ul li:nth-child(1).active ~ .indicator {
-        transform: translateX(calc(70px * 0));
-    }
-
-    .navigation ul li:nth-child(2).active ~ .indicator {
-        transform: translateX(calc(70px * 1));
-    }
-
-    .navigation ul li:nth-child(3).active ~ .indicator {
-        transform: translateX(calc(70px * 2));
-    }
-
-    .navigation ul li:nth-child(4).active ~ .indicator {
-        transform: translateX(calc(70px * 3));
-    }
-
-
     .wrapper-location {
         width: 330px;
         font-size: 20px;
@@ -662,10 +453,3 @@
         font-size: 15px;
     }
 </style>
-
-{{--<script>--}}
-{{--    $(document).on('click', '.list', function () {--}}
-{{--        $('.list').removeClass('active');--}}
-{{--        $(this).addClass('active');--}}
-{{--    })--}}
-{{--</script>--}}
