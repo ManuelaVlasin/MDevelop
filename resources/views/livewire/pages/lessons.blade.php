@@ -33,6 +33,15 @@
     <div class="row">
         <div class="category-head col-2">
             <div class="filter-card">
+                <div class="search-bar">
+                    <div class="search-bar-form">
+                        <i class="fa fa-search"></i>
+                        <input type="text" class="form-control form-input" placeholder="Search anything...">
+                        <span class="left-pan"><i class="fa fa-microphone"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="filter-card">
                 <h3 style="color: black">{{__('Categorie')}}</h3>
                 <ul>
                     <div class="category-title active" id="all">
@@ -102,8 +111,53 @@
 
 <style>
 
+    .search-bar-form {
+
+        position: relative;
+    }
+
+    .search-bar-form .fa-search {
+
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        color: #9ca3af;
+
+    }
+
+    .search-bar-form span {
+
+        position: absolute;
+        right: 17px;
+        top: 13px;
+        padding: 2px;
+        border-left: 1px solid #d1d5db;
+
+    }
+
+    .left-pan {
+        padding-left: 7px;
+    }
+
+    .left-pan i {
+
+        padding-left: 10px;
+    }
+
+    .form-input {
+
+        height: 55px;
+        text-indent: 33px;
+        border-radius: 10px;
+    }
+
+    .form-input:focus {
+
+        box-shadow: none;
+        border: none;
+    }
+
     .filter-card {
-        /*width: 400px;*/
         border-radius: 10px;
         padding: 20px 25px 40px;
         box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
@@ -205,11 +259,6 @@
     }
 
     .category-head ul {
-        /*list-style-type: none;*/
-        /*display: flex;*/
-        /*display: inline-table;*/
-        /*flex-wrap: wrap;*/
-        /*justify-content: flex-start;*/
         padding: 0;
         display: grid;
         justify-content: center;
@@ -218,7 +267,6 @@
     .category-title {
         flex: 0 0 calc(16.6667% - 10px);
         display: flex;
-        /*justify-content:center;*/
         background: #a8a8a8;
         padding: 12px;
         color: #fff;
@@ -254,16 +302,6 @@
     .text-box {
         padding: 50px;
     }
-
-    /*.parallax {*/
-    /*    !* The image used *!*/
-    /*    background-image: url("https://www.metoffice.gov.uk/binaries/content/gallery/metofficegovuk/hero-images/weather/cloud/cumulus-cloud.jpg");*/
-    /*    min-height: 650px;*/
-    /*    background-attachment: fixed;*/
-    /*    background-position: center;*/
-    /*    background-repeat: no-repeat;*/
-    /*    background-size: cover;*/
-    /*}*/
 
     .card_image img {
         width: 100%;
@@ -313,7 +351,6 @@
 
     .card {
         background-color: white;
-        /*box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);*/
         box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
         display: flex;
         flex-direction: column;
@@ -510,7 +547,6 @@
 
     /* End Keyframes */
 
-    /* Media Query For Tablet */
     @media only screen and (min-width: 768px) {
         .cta {
             font-size: 2.5rem;
@@ -521,16 +557,11 @@
             font-size: 6rem;
         }
 
-        /* Hero */
         #hero h1 {
             font-size: 7rem;
         }
-
-        /* End Hero */
-
     }
 
-    /* End Media Query For Tablet */
 
 </style>
 
