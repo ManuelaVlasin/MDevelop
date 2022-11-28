@@ -1,16 +1,4 @@
 <div class="lesson-container">
-    {{--    <div class="parallax-image">--}}
-    {{--        <h1>{{__('Cursuri Acreditate IT')}}--}}
-    {{--            <i class="fa fa-graduation-cap"></i>--}}
-    {{--        </h1>--}}
-    {{--    </div>--}}
-
-    {{--    <div class="parallax"></div>--}}
-    {{--    <h1 class="title-home">This is my title</h1>--}}
-    {{--    <div class="col-lg-12 text-box text-center">--}}
-    {{--        <h1>This is my subtitle. Example, example, etc.</h1>--}}
-    {{--    <div class="parallax"></div>--}}
-
     <section id="hero">
         <div class="hero container">
             <div>

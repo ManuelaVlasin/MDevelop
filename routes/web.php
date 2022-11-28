@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Livewire\Pages\ContactPage\ContactForm;
 use App\Http\Livewire\Pages\LessonDetailsPage;
 use App\Http\Livewire\Pages\Lessons;
 use Illuminate\Support\Facades\Route;
@@ -29,3 +30,4 @@ Route::get('/test', function (){
 
 Route::get('lesson/{lessonId}/details', [LessonDetailsPage::class, '__invoke'])->name('lesson.details');
 Route::get('lessons', [Lessons::class, '__invoke'])->name('lessons');
+Route::get('contact', [ContactForm::class, '__invoke'])->name('contact');
