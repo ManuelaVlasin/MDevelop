@@ -16,6 +16,7 @@ class Lesson extends Model
         'has_period',
         'period_start',
         'period_end',
+        'category'
     ];
 
     public function features()

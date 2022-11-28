@@ -24,7 +24,7 @@
                 <div class="search-bar">
                     <div class="search-bar-form">
                         <i class="fa fa-search"></i>
-                        <input type="text" class="form-control form-input" placeholder="Search anything...">
+                        <input type="text" class="form-control form-input" placeholder="Search anything..." wire:model="textSearch">
                         <span class="left-pan"><i class="fa fa-microphone"></i></span>
                     </div>
                 </div>
@@ -32,22 +32,16 @@
             <div class="filter-card">
                 <h3 style="color: black">{{__('Categorie')}}</h3>
                 <ul>
-                    <div class="category-title active" id="all">
+                    <div class="{{ $selectedCategory === '' ? 'active-category' : '' }} category-title" id="all" wire:click="filterByCategory('')">
                         <span><i class="fas fa-border-all"></i></span>
                         <li>All</li>
                     </div>
-                    <div class="category-title">
-                        <span><i class="fa fa-code"></i></span>
-                        <li>HTML</li>
-                    </div>
-                    <div class="category-title">
-                        <span><i class="fa fa-palette"></i></span>
-                        <li>CSS</li>
-                    </div>
-                    <div class="category-title">
-                        <span><i class="fa fa-toolbox"></i></span>
-                        <li>JavaScript</li>
-                    </div>
+                    @foreach($lessonCategories as $category)
+                        <div class="{{ $category === $selectedCategory ? 'active-category' : '' }} category-title" wire:click="filterByCategory('{{$category}}')">
+                            <span><i class="fa fa-code"></i></span>
+                            <li>{{ $category }}</li>
+                        </div>
+                    @endforeach
                 </ul>
             </div>
 
@@ -58,12 +52,12 @@
                 <div class="price-input">
                     <div class="field">
                         <span>Min</span>
-                        <input type="number" class="input-min" value="2500">
+                        <input type="number" class="input-min" wire:model="lowerPrice">
                     </div>
                     <div class="separator">-</div>
                     <div class="field">
                         <span>Max</span>
-                        <input type="number" class="input-max" value="7500">
+                        <input type="number" class="input-max" wire:model="higherPrice">
                     </div>
                 </div>
                 <div class="slider">
@@ -87,17 +81,23 @@
 
         <div class="card_body col" id="card_section">
             <ul class="cards">
-                @foreach(\App\Models\Lesson::all() as $lesson)
+                @foreach($lessons as $lesson)
                     <livewire:components.cards.simple-card-with-image
                         :lessonId="$lesson->id"
+                        :wire:key="rand()"
                     />
                 @endforeach
             </ul>
+            {{ $lessons->links() }}
         </div>
     </div>
 </div>
 
 <style>
+
+    .active-category{
+        background: #87CEFA !important;
+    }
 
     .search-bar-form {
 

@@ -13,7 +13,7 @@
 
 <div class="app-container">
 
-    <header class="row">
+    <header>
 
         @include('layout.partials.navbar')
 
