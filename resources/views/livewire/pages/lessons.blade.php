@@ -36,7 +36,7 @@
                 <div class="search-bar">
                     <div class="search-bar-form">
                         <i class="fa fa-search"></i>
-                        <input type="text" class="form-control form-input" placeholder="Search anything...">
+                        <input type="text" class="form-control form-input" placeholder="Search anything..." wire:model="textSearch">
                         <span class="left-pan"><i class="fa fa-microphone"></i></span>
                     </div>
                 </div>
@@ -64,12 +64,12 @@
                 <div class="price-input">
                     <div class="field">
                         <span>Min</span>
-                        <input type="number" class="input-min" value="2500">
+                        <input type="number" class="input-min" wire:model="lowerPrice">
                     </div>
                     <div class="separator">-</div>
                     <div class="field">
                         <span>Max</span>
-                        <input type="number" class="input-max" value="7500">
+                        <input type="number" class="input-max" wire:model="higherPrice">
                     </div>
                 </div>
                 <div class="slider">

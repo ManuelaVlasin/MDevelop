@@ -12,7 +12,10 @@ class Lessons extends Component
 
     protected $paginationTheme = 'bootstrap';
 
-    public $selectedCategory;
+    public $selectedCategory = '';
+    public $lowerPrice = 1;
+    public $higherPrice = 6000;
+    public $textSearch = '';
 
     public function render()
     {
@@ -41,6 +44,15 @@ class Lessons extends Component
                     return $lesson;
                 }
             });
+        }
+        if($this->textSearch !== '')
+        {
+            $tempLessons = $lessons;
+            $lessons = $lessons->toQuery()->where('title', 'LIKE', '%' . $this->textSearch . '%')->get();
+            if(count($lessons) === 0)
+            {
+                $lessons = $tempLessons;
+            }
         }
         return $lessons->toQuery()->paginate($nrOfItems);
     }
