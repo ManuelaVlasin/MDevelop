@@ -29,6 +29,31 @@
         </h1>
     </div>
 
+    <div>
+        <select multiple
+                multiselect-search="true"
+                multiselect-select-all="true"
+                multiselect-max-items="3"
+                multiselect-hide-x = "false"
+        >
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+        </select>
+    </div>
+
+    <div class="card_body col" id="card_section">
+        <ul class="cards">
+            @foreach($lessons as $lesson)
+                <livewire:components.cards.simple-card-with-image
+                    :lessonId="$lesson->id"
+                    :wire:key="rand()"
+                />
+            @endforeach
+        </ul>
+        {{ $lessons->links() }}
+    </div>
 
     <div class="row">
         <div class="category-head col-2">
@@ -89,18 +114,6 @@
                 </div>
 
             </div>
-        </div>
-
-        <div class="card_body col" id="card_section">
-            <ul class="cards">
-                @foreach($lessons as $lesson)
-                    <livewire:components.cards.simple-card-with-image
-                        :lessonId="$lesson->id"
-                        :wire:key="rand()"
-                    />
-                @endforeach
-            </ul>
-            {{ $lessons->links() }}
         </div>
     </div>
 </div>
@@ -565,6 +578,7 @@
 
 </style>
 
+<script src="multiselect-dropdown.js" ></script>
 <script>
     const rangeInput = document.querySelectorAll(".range-input input"),
         priceInput = document.querySelectorAll(".price-input input"),
