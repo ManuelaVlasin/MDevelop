@@ -12,7 +12,7 @@ class Lessons extends Component
 
     protected $paginationTheme = 'bootstrap';
 
-    public $selectedCategory = '';
+    public $selectedCategories = [];
     public $lowerPrice = 1;
     public $higherPrice = 6000;
     public $textSearch = '';
@@ -28,19 +28,23 @@ class Lessons extends Component
             ->section('content');
     }
 
-    public function filterByCategory($category)
+    protected $listeners = [
+      'filterLessonByCategory' => 'filterByCategory'
+    ];
+
+    public function filterByCategory($categories)
     {
-        $this->selectedCategory = $category;
+        $this->selectedCategories = $categories;
         $this->resetPage();
     }
 
     public function getLessons($nrOfItems)
     {
         $lessons = Lesson::all();
-        if ($this->selectedCategory) {
+        if (count($this->selectedCategories) > 0) {
             $lessons = $lessons->filter(function ($lesson) {
                 $categories = json_decode($lesson->category);
-                if(in_array($this->selectedCategory, $categories)){
+                if(count(array_intersect($this->selectedCategories, $categories)) > 0){
                     return $lesson;
                 }
             });

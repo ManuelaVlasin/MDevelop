@@ -29,21 +29,28 @@
         </h1>
     </div>
 
-    <div>
-        <select multiple
-                multiselect-search="true"
-                multiselect-select-all="true"
-                multiselect-max-items="3"
-                multiselect-hide-x = "false"
-        >
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-        </select>
+    <div class="card_body">
+        <div class="row" style="margin-left: 1px">
+            <div class="col">
+                <div class="input-group" style="max-width: 320px">
+                    <input type="text" class="form-control" placeholder="{{ __('Cautā') }}" wire:model="textSearch">
+                    <div class="input-group-append">
+                        <span class="input-group-text" id="basic-addon2" style="height: 100%">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col" wire:ignore>
+                <livewire:components.dropdown.multi-select-dropdown
+                :placeholder="'Selecteaza categorii'"
+                :options="$lessonCategories"
+                :searchFunctionCallback="'filterLessonByCategory'"
+                />
+            </div>
+        </div>
     </div>
-
-    <div class="card_body col" id="card_section">
+    <div class="card_body" id="card_section" style="position: relative">
         <ul class="cards">
             @foreach($lessons as $lesson)
                 <livewire:components.cards.simple-card-with-image
@@ -55,72 +62,75 @@
         {{ $lessons->links() }}
     </div>
 
-    <div class="row">
-        <div class="category-head col-2">
-            <div class="filter-card">
-                <div class="search-bar">
-                    <div class="search-bar-form">
-                        <i class="fa fa-search"></i>
-                        <input type="text" class="form-control form-input" placeholder="Search anything..." wire:model="textSearch">
-                        <span class="left-pan"><i class="fa fa-microphone"></i></span>
-                    </div>
-                </div>
-            </div>
-            <div class="filter-card">
-                <h3 style="color: black">{{__('Categorie')}}</h3>
-                <ul>
-                    <div class="{{ $selectedCategory === '' ? 'active-category' : '' }} category-title" id="all" wire:click="filterByCategory('')">
-                        <span><i class="fas fa-border-all"></i></span>
-                        <li>All</li>
-                    </div>
-                    @foreach($lessonCategories as $category)
-                        <div class="{{ $category === $selectedCategory ? 'active-category' : '' }} category-title" wire:click="filterByCategory('{{$category}}')">
-                            <span><i class="fa fa-code"></i></span>
-                            <li>{{ $category }}</li>
-                        </div>
-                    @endforeach
-                </ul>
-            </div>
+{{--    <div class="row">--}}
+{{--        <div class="category-head col-2">--}}
+{{--            <div class="filter-card">--}}
+{{--                <div class="search-bar">--}}
+{{--                    <div class="search-bar-form">--}}
+{{--                        <i class="fa fa-search"></i>--}}
+{{--                        <input type="text" class="form-control form-input" placeholder="Search anything..."--}}
+{{--                               wire:model="textSearch">--}}
+{{--                        <span class="left-pan"><i class="fa fa-microphone"></i></span>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="filter-card">--}}
+{{--                <h3 style="color: black">{{__('Categorie')}}</h3>--}}
+{{--                <ul>--}}
+{{--                    <div class="{{ $selectedCategory === '' ? 'active-category' : '' }} category-title" id="all"--}}
+{{--                         wire:click="filterByCategory('')">--}}
+{{--                        <span><i class="fas fa-border-all"></i></span>--}}
+{{--                        <li>All</li>--}}
+{{--                    </div>--}}
+{{--                    @foreach($lessonCategories as $category)--}}
+{{--                        <div class="{{ $category === $selectedCategory ? 'active-category' : '' }} category-title"--}}
+{{--                             wire:click="filterByCategory('{{$category}}')">--}}
+{{--                            <span><i class="fa fa-code"></i></span>--}}
+{{--                            <li>{{ $category }}</li>--}}
+{{--                        </div>--}}
+{{--                    @endforeach--}}
+{{--                </ul>--}}
+{{--            </div>--}}
 
-            <div class="filter-card">
-                <div class="price-title">
-                    <h3 style="color: black">{{__('Preț')}}</h3>
-                </div>
-                <div class="price-input">
-                    <div class="field">
-                        <span>Min</span>
-                        <input type="number" class="input-min" wire:model="lowerPrice">
-                    </div>
-                    <div class="separator">-</div>
-                    <div class="field">
-                        <span>Max</span>
-                        <input type="number" class="input-max" wire:model="higherPrice">
-                    </div>
-                </div>
-                <div class="slider">
-                    <div class="progress"></div>
-                </div>
-                <div class="range-input">
-                    <input type="range" class="range-min" min="0" max="10000" value="2500" step="100">
-                    <input type="range" class="range-max" min="0" max="10000" value="7500" step="100">
-                </div>
-            </div>
+{{--            <div class="filter-card">--}}
+{{--                <div class="price-title">--}}
+{{--                    <h3 style="color: black">{{__('Preț')}}</h3>--}}
+{{--                </div>--}}
+{{--                <div class="price-input">--}}
+{{--                    <div class="field">--}}
+{{--                        <span>Min</span>--}}
+{{--                        <input type="number" class="input-min" wire:model="lowerPrice">--}}
+{{--                    </div>--}}
+{{--                    <div class="separator">-</div>--}}
+{{--                    <div class="field">--}}
+{{--                        <span>Max</span>--}}
+{{--                        <input type="number" class="input-max" wire:model="higherPrice">--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                <div class="slider">--}}
+{{--                    <div class="progress"></div>--}}
+{{--                </div>--}}
+{{--                <div class="range-input">--}}
+{{--                    <input type="range" class="range-min" min="0" max="10000" value="2500" step="100">--}}
+{{--                    <input type="range" class="range-max" min="0" max="10000" value="7500" step="100">--}}
+{{--                </div>--}}
+{{--            </div>--}}
 
-            <div class="filter-card">
-                <h3 style="color:black;">{{__('Selecteză luna')}}</h3>
+{{--            <div class="filter-card">--}}
+{{--                <h3 style="color:black;">{{__('Selecteză luna')}}</h3>--}}
 
-                <div class="d-grid">
-                    <input class="text-center p-2 rounded" type="month" id="start" name="start" value="">
-                </div>
+{{--                <div class="d-grid">--}}
+{{--                    <input class="text-center p-2 rounded" type="month" id="start" name="start" value="">--}}
+{{--                </div>--}}
 
-            </div>
-        </div>
-    </div>
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
 </div>
 
 <style>
 
-    .active-category{
+    .active-category {
         background: #87CEFA !important;
     }
 
@@ -578,7 +588,6 @@
 
 </style>
 
-<script src="multiselect-dropdown.js" ></script>
 <script>
     const rangeInput = document.querySelectorAll(".range-input input"),
         priceInput = document.querySelectorAll(".price-input input"),
