@@ -48,6 +48,7 @@
                 :searchFunctionCallback="'filterLessonByCategory'"
                 />
             </div>
+{{--            <livewire:components.cards.filter-card/>--}}
         </div>
     </div>
     <div class="card_body" id="card_section" style="position: relative">
