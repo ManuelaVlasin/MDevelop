@@ -12,7 +12,7 @@
 
 
 <li class="cards_item">
-    <div class="card mb-3">
+    <div class="card lesson-card mb-3">
         <div class="row no-gutters">
             <div class="col-md-4 card_image">
                 <img src="{{$lesson->image}}" class="card-img" alt="...">
