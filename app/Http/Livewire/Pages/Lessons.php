@@ -40,8 +40,9 @@ class Lessons extends Component
 
     public function filterByCategory($categories)
     {
-        $this->selectedCategories = $categories;
-        $this->resetPage();
+        $this->skipRender();
+//        $this->selectedCategories = $categories;
+//        $this->resetPage();
     }
 
     public function filterByPrice($prices)
