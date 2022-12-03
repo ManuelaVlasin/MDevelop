@@ -17,85 +17,204 @@
         </h1>
     </div>
 
-
-    <div class="row">
-        <div class="category-head col-2">
-            <div class="filter-card">
-                <div class="search-bar">
-                    <div class="search-bar-form">
-                        <i class="fa fa-search"></i>
-                        <input type="text" class="form-control form-input" placeholder="Search anything..." wire:model="textSearch">
-                        <span class="left-pan"><i class="fa fa-microphone"></i></span>
-                    </div>
-                </div>
-            </div>
-            <div class="filter-card">
-                <h3 style="color: black">{{__('Categorie')}}</h3>
-                <ul>
-                    <div class="{{ $selectedCategory === '' ? 'active-category' : '' }} category-title" id="all" wire:click="filterByCategory('')">
-                        <span><i class="fas fa-border-all"></i></span>
-                        <li>All</li>
-                    </div>
-                    @foreach($lessonCategories as $category)
-                        <div class="{{ $category === $selectedCategory ? 'active-category' : '' }} category-title" wire:click="filterByCategory('{{$category}}')">
-                            <span><i class="fa fa-code"></i></span>
-                            <li>{{ $category }}</li>
-                        </div>
-                    @endforeach
-                </ul>
-            </div>
-
-            <div class="filter-card">
-                <div class="price-title">
-                    <h3 style="color: black">{{__('Preț')}}</h3>
-                </div>
-                <div class="price-input">
-                    <div class="field">
-                        <span>Min</span>
-                        <input type="number" class="input-min" wire:model="lowerPrice">
-                    </div>
-                    <div class="separator">-</div>
-                    <div class="field">
-                        <span>Max</span>
-                        <input type="number" class="input-max" wire:model="higherPrice">
-                    </div>
-                </div>
-                <div class="slider">
-                    <div class="progress"></div>
-                </div>
-                <div class="range-input">
-                    <input type="range" class="range-min" min="0" max="10000" value="2500" step="100">
-                    <input type="range" class="range-max" min="0" max="10000" value="7500" step="100">
-                </div>
-            </div>
-
-            <div class="filter-card">
-                <h3 style="color:black;">{{__('Selecteză luna')}}</h3>
-
-                <div class="d-grid">
-                    <input class="text-center p-2 rounded" type="month" id="start" name="start" value="">
-                </div>
-
-            </div>
+    <div class="container flex flex-column gap-2">
+        <div class="grid grid-flow-col w-full gap-3 md:hidden">
+            <button class="btn btn-outline-secondary" data-toggle="modal" data-target="#myModal">
+                {{ __('Filtreaza') }}
+            </button>
+            <button class="btn btn-outline-secondary">
+                {{ __('Ordoneaza dupa') }}
+            </button>
         </div>
+        <div class="grid grid-flow-col gap-4">
+            <div class="hidden md:block">
+                {{--                <div class="mb-3">--}}
+                {{--                    <div class="input-group" style="max-width: 320px">--}}
+                {{--                        <input type="text" class="form-control" placeholder="{{ __('Cautā') }}" wire:model="textSearch">--}}
+                {{--                        <div class="input-group-append">--}}
+                {{--                        <span class="input-group-text" id="basic-addon2" style="height: 100%">--}}
+                {{--                            <i class="fa fa-search" aria-hidden="true"></i>--}}
+                {{--                        </span>--}}
+                {{--                        </div>--}}
+                {{--                    </div>--}}
+                {{--                </div>--}}
+                {{--                <div wire:ignore class="mb-3">--}}
+                {{--                    <livewire:components.dropdown.multi-select-dropdown--}}
+                {{--                        :placeholder="'Selecteaza categorii'"--}}
+                {{--                        :options="$lessonCategories"--}}
+                {{--                        :searchFunctionCallback="'filterLessonByCategory'"--}}
+                {{--                    />--}}
+                {{--                </div>--}}
+                <div class="mb-3">
+                    <livewire:components.cards.filter-card
+                        :header="'Categorii'"
+                        :options="$lessonCategories"
+                        :callbackFunction="'filterLessonByCategory'"
+                    />
+                </div>
 
-        <div class="card_body col" id="card_section">
-            <ul class="cards">
+                <div class="mb-3">
+                    <livewire:components.cards.filter-card
+                        :header="'Preturi'"
+                        :options="$prices"
+                        :callbackFunction="'filterByPrice'"
+                    />
+                </div>
+
+                <div class="mb-3">
+                    <livewire:components.cards.filter-card
+                        :header="'Luna'"
+                        :options="$months"
+                        :callbackFunction="'filterByMonth'"
+                    />
+                </div>
+            </div>
+            <div class="grid grid-cols-1 xl:grid-cols-2 gap-4">
                 @foreach($lessons as $lesson)
                     <livewire:components.cards.simple-card-with-image
                         :lessonId="$lesson->id"
                         :wire:key="rand()"
                     />
                 @endforeach
-            </ul>
-            {{ $lessons->links() }}
+                {{ $lessons->links() }}
+            </div>
         </div>
     </div>
+
+
+    <!-- Modal -->
+        <div class="modal left fade" wire:ignore.self id="myModal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+
+                    <div class="modal-header text-right">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">
+                            <button class="btn btn-info" data-dismiss="modal" aria-label="Close">{{ __('Afiseaza') }}</button>
+                        </h4>
+                    </div>
+
+                    <div class="modal-body" >
+                        <div>
+                            {{--                <div class="mb-3">--}}
+                            {{--                    <div class="input-group" style="max-width: 320px">--}}
+                            {{--                        <input type="text" class="form-control" placeholder="{{ __('Cautā') }}" wire:model="textSearch">--}}
+                            {{--                        <div class="input-group-append">--}}
+                            {{--                        <span class="input-group-text" id="basic-addon2" style="height: 100%">--}}
+                            {{--                            <i class="fa fa-search" aria-hidden="true"></i>--}}
+                            {{--                        </span>--}}
+                            {{--                        </div>--}}
+                            {{--                    </div>--}}
+                            {{--                </div>--}}
+                            {{--                <div wire:ignore class="mb-3">--}}
+                            {{--                    <livewire:components.dropdown.multi-select-dropdown--}}
+                            {{--                        :placeholder="'Selecteaza categorii'"--}}
+                            {{--                        :options="$lessonCategories"--}}
+                            {{--                        :searchFunctionCallback="'filterLessonByCategory'"--}}
+                            {{--                    />--}}
+                            {{--                </div>--}}
+                            <div class="mb-3">
+                                <livewire:components.cards.filter-card
+                                    :header="'Categorii'"
+                                    :options="$lessonCategories"
+                                    :callbackFunction="'filterLessonByCategory'"
+                                />
+                            </div>
+
+                            <div class="mb-3">
+                                <livewire:components.cards.filter-card
+                                    :header="'Preturi'"
+                                    :options="$prices"
+                                    :callbackFunction="'filterByPrice'"
+                                />
+                            </div>
+
+                            <div class="mb-3">
+                                <livewire:components.cards.filter-card
+                                    :header="'Luna'"
+                                    :options="$months"
+                                    :callbackFunction="'filterByMonth'"
+                                />
+                            </div>
+                        </div>
+                    </div>
+
+                </div><!-- modal-content -->
+            </div><!-- modal-dialog -->
+        </div><!-- modal -->
 </div>
 
 <style>
+    .modal.left .modal-dialog,
+    .modal.right .modal-dialog {
+        position: fixed;
+        margin: auto;
+        width: 100%;
+        height: 100%;
+        -webkit-transform: translate3d(0%, 0, 0);
+        -ms-transform: translate3d(0%, 0, 0);
+        -o-transform: translate3d(0%, 0, 0);
+        transform: translate3d(0%, 0, 0);
+    }
 
-    .active-category{
+    .modal.left .modal-content,
+    .modal.right .modal-content {
+        height: 100%;
+        overflow-y: auto;
+    }
+
+    .modal.left .modal-body,
+    .modal.right .modal-body {
+        padding: 15px 15px 80px;
+    }
+
+    /*Left*/
+    .modal.left.fade .modal-dialog{
+        -webkit-transition: opacity 0.3s linear, left 0.3s ease-out;
+        -moz-transition: opacity 0.3s linear, left 0.3s ease-out;
+        -o-transition: opacity 0.3s linear, left 0.3s ease-out;
+        transition: opacity 0.3s linear, left 0.3s ease-out;
+    }
+
+    .modal.left.fade.in .modal-dialog{
+        left: 0;
+    }
+
+    .demo {
+        padding-top: 60px;
+        padding-bottom: 110px;
+    }
+
+    .btn-demo {
+        margin: 15px;
+        padding: 10px 15px;
+        border-radius: 0;
+        font-size: 16px;
+        background-color: #FFFFFF;
+    }
+
+    .btn-demo:focus {
+        outline: 0;
+    }
+
+    .demo-footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        padding: 15px;
+        background-color: #212121;
+        text-align: center;
+    }
+
+    .demo-footer > a {
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 16px;
+        color: #fff;
+    }
+
+    .active-category {
         background: #87CEFA !important;
     }
 
@@ -337,7 +456,7 @@
         padding: 1rem;
     }
 
-    .card {
+    .lesson-card {
         background-color: white;
         box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
         display: flex;
