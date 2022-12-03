@@ -31,3 +31,7 @@ Route::get('/test', function (){
 Route::get('lesson/{lessonId}/details', [LessonDetailsPage::class, '__invoke'])->name('lesson.details');
 Route::get('lessons', [Lessons::class, '__invoke'])->name('lessons');
 Route::get('contact', [ContactForm::class, '__invoke'])->name('contact');
+
+Route::get('/send-contact-data', [ContactForm::class, 'sendEmailNotification']);
+
+

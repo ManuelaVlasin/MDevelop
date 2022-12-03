@@ -364,12 +364,6 @@
         text-align: center;
     }
 
-    @media only screen and (max-device-width: 1024px) {
-        .parallax {
-            background-attachment: scroll;
-        }
-    }
-
     @media (min-width: 40rem) {
         .cards_item {
             width: 50%;

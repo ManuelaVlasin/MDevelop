@@ -34,7 +34,7 @@
                     <div id="subscribebox">
                         <i style="color: white" class="fa fa-envelope fa-4x"></i>
                         <h3>{{__('Abonare la newsletter')}}</h3>
-                        <form>
+                        <form class="newsletter-form">
                             <input type="text" placeholder="Enter email" id="email-input">
                             <input type="submit" value="Join" id="subscribe-button">
                         </form>
@@ -146,24 +146,24 @@
         margin-bottom: 2px;
         color: #656565;
     }
-    .right form .msg{
+    .right .newsletter-form .msg{
         margin-top: 10px;
     }
-    .right form input, .right form textarea{
+    .right .newsletter-form input, .right .newsletter-form textarea{
         width: 100%;
         font-size: 1.0625rem;
         background: #151515;
         padding-left: 10px;
         border: 1px solid #222222;
     }
-    .right form input:focus,
-    .right form textarea:focus{
+    .right .newsletter-form input:focus,
+    .right .newsletter-form textarea:focus{
         outline-color: #3498db;
     }
-    .right form input{
+    .right .newsletter-form input{
         height: 35px;
     }
-    .right form .btn{
+    .right .newsletter-form .btn{
         margin-top: 10px;
     }
 
@@ -192,7 +192,7 @@
         padding: 60px 20px;
     }
 
-    form{
+    .newsletter-form{
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
