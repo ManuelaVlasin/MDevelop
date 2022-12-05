@@ -1,6 +1,6 @@
 <header>
     <nav>
-        <div class="logo"><a href="#"><span style="color: #87CEFA">M</span>DEVELOP</a></div>
+        <div class="logo"><a href="home"><span style="color: #87CEFA">M</span>DEVELOP</a></div>
         <div class="toggle__menu" id="toggle-menu">
             <i style="color: #87CEFA; font-size: 25px;" class="bx bx-grid-alt"></i>
         </div>
@@ -8,10 +8,10 @@
             <div class="close__menu" id="close-menu">
                 <i class="bx bx-x"></i>
             </div>
-            <li class="nav__item"><a href="#" class="nav__link"></a>{{__('Acasa')}}</li>
-            <li class="nav__item dropdown"><a href="#" class="nav__link dropdown__link"></a>{{__('Cursuri')}}
-                <i class="bx bxs-chevron-down dropdown__icon"></i>
-
+            <li class="nav__item"><a href="home" class="nav__link">{{__('Acasa')}}</a></li>
+            <li class="nav__item dropdown"><a href="#" class="nav__link dropdown__link">{{__('Cursuri')}}
+                    <i class="bx bxs-chevron-down dropdown__icon"></i>
+                </a>
                 <div class="megamenu">
                     <ul class="content">
                         <li class="megamenu__item header__megamenu">Front-End Development</li>
@@ -155,9 +155,9 @@
 
                 </div>
             </li>
-            <li class="nav__item"><a href="#" class="nav__link"></a>{{__('Store')}}</li>
-            <li class="nav__item"><a href="#" class="nav__link"></a>{{__('Despre noi')}}</li>
-            <li class="nav__item"><a href="{{ route('contact') }}" class="nav__link"></a>{{__('Contact')}}</li>
+            <li class="nav__item"><a href="#" class="nav__link">{{__('Store')}}</a></li>
+            <li class="nav__item"><a href="#" class="nav__link">{{__('Despre noi')}}</a></li>
+            <li class="nav__item"><a href="{{ route('contact') }}" class="nav__link">{{__('Contact')}}</a></li>
 
         </ul>
 
@@ -235,7 +235,7 @@
         color: #544756;
     }
 
-    .nav__link:hover {
+    .nav__list .nav__item .nav__link:hover {
         color: #73C2FB;
     }
 

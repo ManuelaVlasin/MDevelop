@@ -1,8 +1,8 @@
-<div style="margin: 80px">
+<div class="lesson-details-page">
     <div style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;" class="card mb-3">
-        <div class="row no-gutters">
+        <div class="row no-gutters align-items-center">
             <div class="col-md-4">
-                <img src="{{$lesson->image}}" style="max-width: 100%; margin: 20px">
+                <img class="lesson-image" src="{{$lesson->image}}">
             </div>
             <div class="col-md-8">
                 <div class="card-body">
@@ -48,19 +48,19 @@
 
     <div class="card">
         <div class="card-header text-center p-5">
-            <a class="btn {{$selectedTab === 'overview' ? 'btn-secondary' : 'btn-outline-secondary'}}"
+            <a class="mb-1 btn {{$selectedTab === 'overview' ? 'btn-secondary' : 'btn-outline-secondary'}}"
                wire:click="selectTab('overview')">
                 {{__('Detalii Curs')}}
             </a>
-            <a class="btn {{$selectedTab === 'accreditation' ? 'btn-secondary' : 'btn-outline-secondary'}}"
+            <a class="mb-1 btn {{$selectedTab === 'accreditation' ? 'btn-secondary' : 'btn-outline-secondary'}}"
                wire:click="selectTab('accreditation')">
                 {{__('Acreditare')}}
             </a>
-            <a class="btn {{$selectedTab === 'payment' ? 'btn-secondary' : 'btn-outline-secondary'}}"
+            <a class="mb-1 btn {{$selectedTab === 'payment' ? 'btn-secondary' : 'btn-outline-secondary'}}"
                wire:click="selectTab('payment')">
                 {{__('Modalități de plată')}}
             </a>
-            <a class="btn {{$selectedTab === 'location' ? 'btn-secondary' : 'btn-outline-secondary'}}"
+            <a class="mb-1 btn {{$selectedTab === 'location' ? 'btn-secondary' : 'btn-outline-secondary'}}"
                wire:click="selectTab('location')">
                 {{__('Locație și organizare')}}
             </a>
@@ -96,8 +96,8 @@
                             @foreach($lesson->features as $feature)
                                 <div class="col-sm-4">
                                     <div class="card mb-3">
-                                        <div class="card-body" style="height: 120px">
-                                            <h5 class="card-title d-flex justify-content-center p-4">{{__($feature->feature_name)}}</h5>
+                                        <div class="card-body" style="height: 120px; display: grid; text-align: center; align-items: center;">
+                                            <h5 class="card-title d-flex justify-content-center text-center">{{__($feature->feature_name)}}</h5>
                                         </div>
                                     </div>
                                 </div>
@@ -178,7 +178,7 @@
                                         style="max-width: 100%; padding: 20px">
                                 </div>
                                 <div class="col-md-8">
-                                    <div class="d-flex text-center mb-5">
+                                    <div class="d-flex text-center mb-5 payment-methods">
                                         <div
                                             class="list-group-item list-group-item-action flex-column align-items-start">
                                             <div><h5 class="mb-1 fw-bold">{{__('Integral')}}</h5></div>
@@ -199,7 +199,7 @@
                                     <div class="table-responsive">
                                         <table class="table table-striped">
                                             <thead>
-                                            <tr>
+                                            <tr style="vertical-align: baseline">
                                                 <th scope="col"></th>
                                                 <th scope="col">{{__('Plata')}}</th>
                                                 <th scope="col">{{__('La Bancă')}}</th>
@@ -265,7 +265,7 @@
                                     <div class="col">
                                         <img
                                             src="https://ictbyte.com/wp-content/uploads/2021/05/oral-presentation.jpg"
-                                            style="width: 300px">
+                                            style="width: 50%">
                                     </div>
                                 </div>
                         </div>
@@ -276,6 +276,16 @@
 </div>
 
 <style>
+
+    .lesson-details-page{
+        margin: 80px;
+    }
+
+    .lesson-image{
+        max-width: 100%;
+        margin: 20px
+    }
+
     .wrapper-location {
         width: 330px;
         font-size: 20px;
@@ -283,7 +293,7 @@
 
     .StepProgress {
         position: relative;
-        padding-left: 45px;
+        /*padding-left: 45px;*/
         list-style: none;
     }
 
@@ -379,13 +389,25 @@
         font-size: 20px;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 600px) {
         .stepper-item {
             font-size: 12px;
         }
 
         .accreditation-cards {
             display: block;
+        }
+
+        .payment-methods{
+            display: block !important;
+        }
+
+        .lesson-image{
+            margin: 0;
+        }
+
+        .lesson-details-page{
+            margin: 80px 0 0 0;
         }
     }
 
