@@ -1,4 +1,9 @@
 <section class="contact-section">
+    @if (session('message'))
+        <div class="alert alert-success">
+            {{ session('message') }}
+        </div>
+    @endif
     <div class="contact-container">
         <div class="contactInfo">
             <div>
@@ -91,7 +96,7 @@
         min-width: 1100px;
         min-height: 550px;
         display: flex;
-        z-index: 1000;
+        /*z-index: 1000;*/
     }
 
     .contact-container .contactInfo {

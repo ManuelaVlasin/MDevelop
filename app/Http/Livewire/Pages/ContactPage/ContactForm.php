@@ -17,17 +17,20 @@ class ContactForm extends Component
     ];
 
     public function sendEmailNotification(){
-        $user = User::first();
 
         $contactFormData = [
-            'body' => 'You recived something',
-            'message' => 'Test message',
+            'first_name' => $this->contact['first_name'] ?? '',
+            'last_name' => $this->contact['last_name'] ?? '',
+            'email' => $this->contact['email'] ?? '',
+            'phone' => $this->contact['phone'] ?? '',
+            'message' => $this->contact['message'] ?? '',
+            'actionButton' => 'Go To MDevelop Website',
             'url' => url('/'),
-            'thankyou' => 'Thank you message'
         ];
 
-//        $user->notify(new ContactFormNotification($contactFormData));
         Notification::route('mail', 'manuela.vlasin@gmail.com')->notify(new ContactFormNotification($contactFormData));
+
+        return redirect()->back()->with('message', 'Mesajul tău a fost trimis cu succes!');
     }
 
     public function render()

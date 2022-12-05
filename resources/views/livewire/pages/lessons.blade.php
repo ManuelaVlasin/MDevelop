@@ -1,7 +1,7 @@
 <div class="lesson-container">
     <section id="hero">
         <div class="hero container">
-            <div>
+            <div style="padding-top: 50px">
                 <h1>{{__('Fă primul pas spre')}}<span></span></h1>
                 <h1>{{__('LIBERTATEA ta')}}<span></span></h1>
                 <h1>{{__('FINANCIARĂ ')}}<span></span></h1>
@@ -69,7 +69,7 @@
                     />
                 </div>
             </div>
-            <div class="grid grid-cols-1 xl:grid-cols-2 gap-4">
+            <div class="grid grid-cols-1 xl:grid-cols-2 gap-4" id="card_section">
                 @foreach($lessons as $lesson)
                     <livewire:components.cards.simple-card-with-image
                         :lessonId="$lesson->id"
@@ -648,7 +648,7 @@
 
     /* End Keyframes */
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: 1024px) {
         .cta {
             font-size: 2.5rem;
             padding: 20px 60px;
@@ -660,6 +660,20 @@
 
         #hero h1 {
             font-size: 7rem;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .cta{
+            font-size: 1rem;
+        }
+
+        #hero h1{
+            font-size: 2rem;
+        }
+
+        .text-title{
+            font-size: 30px;
         }
     }
 

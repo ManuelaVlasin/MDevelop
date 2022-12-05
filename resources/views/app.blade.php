@@ -1,6 +1,6 @@
 <!doctype html>
 
-<html>
+<html style="max-width: 100%; overflow-x: hidden;">
 
 <head>
 

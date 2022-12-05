@@ -182,8 +182,11 @@
         list-style: none;
     }
 
+
     body {
         background-color: #f0f0f0;
+        max-width: 100%;
+        overflow-x: hidden;
     }
 
     header {

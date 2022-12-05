@@ -102,8 +102,8 @@ class Lessons extends Component
     {
         $lessons = Lesson::all();
         $categories = [];
-        foreach ($lessons as $lesson) {
-            foreach (json_decode($lesson->category) as $category) {
+        foreach ($lessons ?? [] as $lesson) {
+            foreach (json_decode($lesson->category) ?? [] as $category) {
                 if (!in_array($category, $categories)) {
                     $categories[] = $category;
                 }

@@ -3,9 +3,9 @@
 namespace App\Notifications;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
+use Illuminate\Support\HtmlString;
 
 class ContactFormNotification extends Notification
 {
@@ -43,12 +43,16 @@ class ContactFormNotification extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-//                    ->line('The introduction to the notification.')
-//                    ->action('Notification Action', url('/'))
-//                    ->line('Thank you for using our application!');
-            ->line($this->contactFormData['body'])
-            ->action($this->contactFormData['message'], $this->contactFormData['url'])
-            ->line($this->contactFormData['thankyou']);
+            ->subject('Contact Form')
+            ->greeting(new HtmlString("<p style='text-align: center; font-size: 18px; font-weight: bold'>Formular de Contact</p>"))
+            ->line('Nume: ' .$this->contactFormData['last_name'])
+            ->line('Prenume: ' .$this->contactFormData['first_name'])
+            ->line('Email: ' .$this->contactFormData['email'])
+            ->line('Telefon: ' .$this->contactFormData['phone'])
+            ->line('Mesaj: ' .$this->contactFormData['message'])
+            ->action($this->contactFormData['actionButton'], $this->contactFormData['url'])
+            ->salutation("\r\n\r\n Beste Grüße,  \r\n Ihr MDevelop-Team");
+
     }
 
     /**
