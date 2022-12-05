@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/home', function () {
     return view('app');
 });
 
@@ -28,10 +28,12 @@ Route::get('/test', function (){
     return view('test');
 });
 
+Route::get('/about', function (){
+    return view('about');
+});
+
+
 Route::get('lesson/{lessonId}/details', [LessonDetailsPage::class, '__invoke'])->name('lesson.details');
 Route::get('lessons', [Lessons::class, '__invoke'])->name('lessons');
 Route::get('contact', [ContactForm::class, '__invoke'])->name('contact');
-
-//Route::get('/send-contact-data', [ContactForm::class, 'sendEmailNotification']);
-
 
