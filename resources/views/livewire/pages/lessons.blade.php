@@ -2,20 +2,10 @@
     <section id="hero">
         <div class="hero container">
             <div style="padding-top: 50px">
-                <h1>{{__('Fă primul pas spre')}}<span></span></h1>
-                <h1>{{__('LIBERTATEA ta')}}<span></span></h1>
-                <h1>{{__('FINANCIARĂ ')}}<span></span></h1>
-                <a href="#card_section" type="button" class="cta">{{__('Explorează')}}</a>
+                <h1>{{__('Cursuri Acreditate de IT')}}<span></span></h1>
             </div>
         </div>
     </section>
-
-    <div class="col-lg-12 text-box text-center">
-        {{--        <img src="https://www.itfactory.ro/wp-content/uploads/2021/05/Cursuri-Acreditate-250-%C3%97-250-px.png" />--}}
-        <h1 class="text-title">{{__('Cursuri Acreditate de IT')}}
-            <i class="fa fa-graduation-cap"></i>
-        </h1>
-    </div>
 
     <div class="container flex flex-column gap-2">
         <div class="grid grid-flow-col w-full gap-3 md:hidden">
@@ -532,7 +522,8 @@
 
     /* Hero Section */
     #hero {
-        background-image: url('https://wallpapercave.com/wp/wp6116609.jpg');
+        /*background-image: url('https://wallpapercave.com/wp/wp6116609.jpg');*/
+        background-image: url('https://www.simplilearn.com/ice9/free_resources_article_thumb/6_Best_Places_to_Study_Abroad_v2.jpg');
         background-size: cover;
         background-position: top center;
         position: relative;

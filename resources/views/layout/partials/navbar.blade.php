@@ -156,7 +156,7 @@
                 </div>
             </li>
             <li class="nav__item"><a href="#" class="nav__link">{{__('Store')}}</a></li>
-            <li class="nav__item"><a href="#" class="nav__link">{{__('Despre noi')}}</a></li>
+{{--            <li class="nav__item"><a href="{{ route('about-us') }}" class="nav__link">{{__('Despre noi')}}</a></li>--}}
             <li class="nav__item"><a href="{{ route('contact') }}" class="nav__link">{{__('Contact')}}</a></li>
 
         </ul>
