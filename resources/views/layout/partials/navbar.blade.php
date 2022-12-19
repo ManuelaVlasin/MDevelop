@@ -1,6 +1,6 @@
 <header>
     <nav>
-        <div class="logo"><a href="home"><span style="color: #87CEFA">M</span>DEVELOP</a></div>
+        <div class="logo"><a href="{{ route('home') }}"><span style="color: #87CEFA">M</span>DEVELOP</a></div>
         <div class="toggle__menu" id="toggle-menu">
             <i style="color: #87CEFA; font-size: 25px;" class="bx bx-grid-alt"></i>
         </div>
@@ -8,7 +8,7 @@
             <div class="close__menu" id="close-menu">
                 <i class="bx bx-x"></i>
             </div>
-            <li class="nav__item"><a href="home" class="nav__link">{{__('Acasa')}}</a></li>
+            <li class="nav__item"><a href="{{ route('home') }}" class="nav__link">{{__('Acasa')}}</a></li>
             <li class="nav__item dropdown"><a href="#" class="nav__link dropdown__link">{{__('Cursuri')}}
                     <i class="bx bxs-chevron-down dropdown__icon"></i>
                 </a>
