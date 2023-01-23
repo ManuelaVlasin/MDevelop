@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\StripeController;
+use App\Http\Controllers\SubscriptionController;
 use App\Http\Livewire\Pages\AboutUs\AboutUs;
 use App\Http\Livewire\Pages\ContactPage\ContactForm;
 use App\Http\Livewire\Pages\HomePage\Home;
@@ -39,6 +41,19 @@ Route::get('/test_slider', function (){
 Route::get('/about', function (){
     return view('about');
 });
+
+//Stripe Laravel Cashier
+
+Route::get('/payment', [StripeController::class, 'index'])->name('index_payment');
+Route::post('/single-charge', [StripeController::class, 'singleCharge'])->name('single.charge');
+Route::get('/plans/create', [SubscriptionController::class, 'showPlanForm'])->name('plans.create');
+Route::post('/plans/store', [SubscriptionController::class, 'savePlan'])->name('plans.store');
+Route::get('/plans', [SubscriptionController::class, 'allPlans'])->name('plans.all');
+Route::get('/plans/checkout/{planId}', [SubscriptionController::class, 'checkout'])->name('plans.checkout');
+Route::post('/plans/process', [SubscriptionController::class, 'processPlan'])->name('plan.process');
+Route::get('/subscriptions/all', [SubscriptionController::class, 'allSubscriptions'])->name('subscriptions.all');
+Route::get('/subscriptions/cancel', [SubscriptionController::class, 'cancelSubscriptions'])->name('subscription.cancel');
+Route::get('/subscriptions/resume', [SubscriptionController::class, 'resumeSubscriptions'])->name('subscription.resume');
 
 //-----------------------------------------------
 
