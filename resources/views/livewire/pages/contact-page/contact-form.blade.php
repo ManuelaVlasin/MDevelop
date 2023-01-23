@@ -86,9 +86,22 @@
         justify-content: center;
         align-items: center;
         min-height: 100vh;
-        background-repeat: no-repeat;
-        background-size: cover;
         background-image: url("https://www.abercrombiekent.co.uk/-/media/abercrombieandkent/images/itineraries/destinations/north-america/usa/city-lights-of-the-usa/day-11--miami.jpg?w=1920&h=940");
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .contact-section::after {
+        background-color: black;
+        content: "";
+        opacity: 0.3;
+        background-size: cover;
+        background-repeat: no-repeat;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        left: 0px;
     }
 
     .contact-container {
@@ -96,7 +109,7 @@
         min-width: 1100px;
         min-height: 550px;
         display: flex;
-        /*z-index: 1000;*/
+        z-index: 1000;
     }
 
     .contact-container .contactInfo {
@@ -270,7 +283,8 @@
 
         .contact-container .contactForm {
             position: relative;
-            width: calc(100% - 350px);
+            /*width: calc(100% - 350px);*/
+            width: calc(100%);
             margin-left: 0;
             padding: 40px;
             height: 550px;

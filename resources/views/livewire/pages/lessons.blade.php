@@ -7,7 +7,7 @@
         </div>
     </section>
 
-    <div class="container flex flex-column gap-2">
+    <div class="container mt-3 lg:mt-0 flex flex-column gap-2">
         <div class="grid grid-flow-col w-full gap-3 md:hidden">
             <button class="btn btn-outline-secondary" data-toggle="modal" data-target="#myModal">
                 {{ __('Filtreaza') }}
